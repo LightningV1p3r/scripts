@@ -1,0 +1,27 @@
+
+Prerequisites:
+	packages: apt-get install zsh git wget build-essential procps curl file unzip libssl-dev pkg-config
+
+	shell-setup:
+		OhMyZSH: sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		ZSH-syntax-highlighting: git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+		ZSH-autosuggestions: git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+		Oh My Posh: curl -s https://ohmyposh.dev/install.sh | bash -s && echo 'eval "$(oh-my-posh init zsh)"' >> ~/.zshrc && echo "export PATH=$PATH:/home/user/.local/bin" >> ~/.zshenv && exec zsh
+
+	rust: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+	brew: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.zshrc && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && echo 'export HOMEBREW_NO_ENV_HINTS="TRUE"' && exec zsh
+[man]	tldr-pages: brew install tlrc
+[ls]	eza: cargo install eza
+[cat]	bat: apt-get install bat
+[df]	duf: apt-get install duf
+[tree]	tre-command: apt-get install tre-command
+[ping]	gping: apt-get install gping
+[diff]	diff-so-fancy: brew install diff-so-fancy
+[ps]	procs: brew install procs
+[dig]	doge: cargo install dns-doge
+
+Additional steps:
+ - configure git
+ - configure diff-so-fancy to be used by git
+ - add the necessary aliases
