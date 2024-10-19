@@ -10,8 +10,9 @@ def execute_command(command):
 
 
 def install_flatpak_by_id(flatpak_id):
+    print(f"Installing {flatpak_id}")
     command = f"flatpak install -y flathub {flatpak_id}"
-    print(execute_command(command))
+    execute_command(command)
 
 
 def main():
